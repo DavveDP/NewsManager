@@ -1,4 +1,22 @@
 # NewsManager
+Student A (Core Article Functionality: CRUD)
+- Responsible for components: ArticleListComponent, ArticleDetailsComponent, ArticleEditionComponent
+- Complete the basic logic for displaying articles in lists, displaying details, creating, editing, and deleting articles
+- Can use fake data (mock JSON) to debug the UI first, independent of Student B's login functionality.
+
+Student B (Authentication + User Status Management + Permission Control)
+- Responsible for components: LoginComponent (integrated into the homepage) and NavbarComponent
+- Functionality: Login/Logout, API Key management, and control button display based on login status
+- Permission Control: Do not display the "Create/Edit/Delete" buttons for logged-in users
+- He can also start by using mock login logic (fake username and password) to develop independently, independent of Student A's article functionality. 
+
+Student C (UI & Engineering Fundamentals & User Experience Optimization)
+- Responsibilities:
+- Project infrastructure (initializing the Angular project, generating components, configuring routing)
+- Global UI styling (Bootstrap + responsive Navbar + global CSS)
+- Error notifications and feedback (deletion confirmation pop-ups, save/login result notifications)
+- He can initially develop static HTML + Bootstrap templates and later integrate them with the features of A and B.
+
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
 

@@ -1,22 +1,24 @@
 # NewsManager
-Student A (Core Article Functionality: CRUD)
-- Responsible for components: ArticleListComponent, ArticleDetailsComponent, ArticleEditionComponent
-- Complete the basic logic for displaying articles in lists, displaying details, creating, editing, and deleting articles
-- Can use fake data (mock JSON) to debug the UI first, independent of Student B's login functionality.
+//Rayne changed what
+-app
+--articles
+---article-details (✅article detail component)
+---article-edition (✅article edition component)
+---article-list (not the real one, just for testing，need substitute)
+--article.model.ts (for testing)
+--news-mock.service.ts (for testing)
+--app.routes.ts (for testing)
+--app.ts (for testing)
+--app.html (for testing)
 
-Student B (Authentication + User Status Management + Permission Control)
-- Responsible for components: LoginComponent (integrated into the homepage) and NavbarComponent
-- Functionality: Login/Logout, API Key management, and control button display based on login status
-- Permission Control: Do not display the "Create/Edit/Delete" buttons for logged-in users
-- He can also start by using mock login logic (fake username and password) to develop independently, independent of Student A's article functionality. 
+//urls
+http://localhost:4200/articles (mock Article List)
+http://localhost:4200/articles/1 (mock Article Detail1)
+http://localhost:4200/articles/2 (mock Article Detail2)
+http://localhost:4200/articles/edit/1 (mock Article Edit1)
+http://localhost:4200/articles/edit/2 (mock Article Edit2)
 
-Student C (UI & Engineering Fundamentals & User Experience Optimization)
-- Responsibilities:
-- Project infrastructure (initializing the Angular project, generating components, configuring routing)
-- Global UI styling (Bootstrap + responsive Navbar + global CSS)
-- Error notifications and feedback (deletion confirmation pop-ups, save/login result notifications)
-- He can initially develop static HTML + Bootstrap templates and later integrate them with the features of A and B.
-
+//password: DEV_TEAM_03; APIKEY: ANON03
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.3.1.
 

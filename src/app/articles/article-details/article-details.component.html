@@ -1,0 +1,41 @@
+<div class="container mt-4" *ngIf="!loading; else loadingTpl">
+  <div *ngIf="error" class="alert alert-danger">{{ error }}</div>
+
+  <div *ngIf="article">
+    <h1 class="mb-1">{{ article.title }}</h1>
+    <h5 class="text-muted mb-2">{{ article.subtitle }}</h5>
+
+    <div class="mb-2">
+      <span class="badge bg-secondary">{{ article.category }}</span>
+      <small class="text-muted ms-2">
+        Published: {{ article.update_date | date:'medium' }} — Editor: {{ article.modified_by }}
+      </small>
+    </div>
+
+    <div *ngIf="article.image_data" class="mb-3">
+      <img [src]="'data:' + article.image_media_type + ';base64,' + article.image_data"
+           class="img-fluid rounded" alt="article image">
+    </div>
+
+    <p class="fst-italic">{{ article.abstract }}</p>
+
+    <hr>
+
+    <div class="article-body" [innerHTML]="safeBody"></div>
+
+    <div class="mt-4">
+      <button class="btn btn-secondary" (click)="goBack()">Back</button>
+    </div>
+  </div>
+
+  <div *ngIf="!article && !error" class="alert alert-info">
+    No article found.
+  </div>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="container mt-4 text-center">
+    <div class="spinner-border" role="status"><span class="visually-hidden">Loading...</span></div>
+    <p class="mt-2">Loading...</p>
+  </div>
+</ng-template>

@@ -1,0 +1,23 @@
+img.img-thumbnail {
+  max-width: 100%;
+  height: auto;
+}
+
+.preview {
+  margin-top: 2rem;
+  padding: 1rem;
+  border: 2px dashed #ccc;
+  border-radius: 8px;
+  background-color: #fafafa;
+}
+
+.preview h2 {
+  margin-bottom: 1rem;
+  color: #333;
+}
+
+.preview img {
+  margin-top: 1rem;
+  max-width: 100%;
+  border: 1px solid #ddd;
+}

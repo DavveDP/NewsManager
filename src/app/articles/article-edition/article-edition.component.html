@@ -1,0 +1,66 @@
+<div class="container mt-4">
+  <h2 *ngIf="isEdit">edit article</h2>
+  <h2 *ngIf="!isEdit">create article</h2>
+
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <div class="mb-3">
+      <label class="form-label">Title *</label>
+      <input class="form-control" formControlName="title" />
+      <div class="text-danger" *ngIf="form.get('title')?.touched && form.get('title')?.invalid">标题为必填项</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Subtitle *</label>
+      <input class="form-control" formControlName="subtitle" />
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category</label>
+      <select class="form-select" formControlName="category">
+        <option value="">-- Choose Category --</option>
+        <option *ngFor="let c of categories" [value]="c">{{ c }}</option>
+      </select>
+      <div class="text-danger" *ngIf="form.get('category')?.touched && form.get('category')?.invalid">分类为必填项</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Picture</label>
+      <input type="file" class="form-control" (change)="fileChangeEvent($event)" accept="image/*" />
+      <div class="text-danger" *ngIf="imageError">{{ imageError }}</div>
+      <div *ngIf="imagePreview" class="mt-2">
+        <p class="mb-1">Preview：</p>
+        <img [src]="imagePreview" class="img-thumbnail" style="max-width:300px;" />
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Abstract *</label>
+      <textarea class="form-control" formControlName="abstract" rows="2"></textarea>
+      <div class="text-danger" *ngIf="form.get('abstract')?.touched && form.get('abstract')?.invalid">摘要为必填项</div>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Body *（can use HTML）</label>
+      <textarea class="form-control" formControlName="body" rows="8"></textarea>
+    </div>
+
+    <div class="mt-3">
+      <button class="btn btn-primary" [disabled]="isSaving">{{ isSaving ? 'Saving...' : 'Save' }}</button>
+      <button type="button" class="btn btn-secondary ms-2" (click)="cancel()">Cancel</button>
+    </div>
+  </form>
+
+  
+  <div class="preview">
+  <h2>Preview</h2>
+  <h3>{{ form.value.title }}</h3>
+  <h4>{{ form.value.subtitle }}</h4>
+  <p><strong>Abstract:</strong> {{ form.value.abstract }}</p>
+  <div [innerHTML]="form.value.body"></div>
+  <p><em>Category: {{ form.value.category }}</em></p>
+  <div *ngIf="imagePreview">
+    <img [src]="imagePreview" width="300">
+  </div>
+
+
+</div>

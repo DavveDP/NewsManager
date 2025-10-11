@@ -1,0 +1,28 @@
+<p>article-list works!</p>
+
+<div *ngIf="isLoggedIn" class="col-12 mt-2">
+    <button [routerLink]="['/articles/add']" class="btn btn-primary">
+        Add article
+    </button>
+</div>
+
+<div *ngFor="let article of filteredArticles" class=" card m-3 p-3">
+    <div class="row">
+        <div class="col-3">
+            <img [src]="article.thumbnail_image" alt="Thumbnail" class="img-fluid">
+        </div>
+        <div class="col-9">
+            <h2>{{ article.title }}</h2>
+            <h4>{{ article.subtitle }}</h4>
+            <p>{{ article.abstract }}</p>
+            <button [routerLink]="['/articles', article.id]" class="btn btn-primary">
+                Details
+            </button>
+        </div>
+        <div *ngIf="isLoggedIn" class="col-12 mt-2">
+            <button (click)="deleteArticle(article.id)" class="btn btn-danger">
+                Delete article
+            </button>
+        </div>
+    </div>
+</div>

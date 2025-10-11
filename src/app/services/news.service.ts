@@ -4,7 +4,7 @@ import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { LoginService } from './login-service';
+import { LoginService } from './login.service';
 
 @Injectable({
   providedIn: 'root'
@@ -99,3 +99,4 @@ export class NewsService {
     return this.http.post<Article>(this.articleUrl, article, this.httpOptions);
   }
 }
+
